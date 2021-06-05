@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0"
+	xmlns="http://java.sun.com/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+	<persistence-unit name="persistence-data">
+
+		<class>com.nlu.entity.RoomEntity</class>
+		<class>com.nlu.entity.RoomTypeEntity</class>
+		<class>com.nlu.entity.BookingEntity</class>
+
+		<class>com.nlu.entity.UserEntity</class>
+		<class>com.nlu.entity.UserGroupEntity</class>
+		<class>com.nlu.entity.RoleEntity</class>
+		<!-- <class>com.chondo.entity.RoomEntity</class> <class>com.chondo.entity.RoomStatusEntity</class> 
+			<class>com.chondo.entity.RoomTypeEntity</class> <class>com.chondo.entity.HotelEntity</class> 
+			<class>com.chondo.entity.BookingEntity</class> <class>com.chondo.entity.BookingStatusEntity</class> 
+			<class>com.chondo.entity.PaymentEntity</class> <class>com.chondo.entity.PaymentStatusEntity</class> 
+			<class>com.chondo.entity.PaymentTypeEntity</class> <class>com.chondo.entity.PromotionEntity</class> 
+			<class>com.chondo.entity.RateEntity</class> <class>com.chondo.entity.ServiceEntity</class> -->
+	</persistence-unit>
+</persistence>
+
