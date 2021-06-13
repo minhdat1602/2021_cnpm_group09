@@ -306,6 +306,7 @@
 										console.log(data["adult"]);
 										console.log(data["startDate"]);
 										console.log(data["endDate"]);
+										alert($("#xmxx").val());
 										search(data);
 									});
 							function search(data) {
