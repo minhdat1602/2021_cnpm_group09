@@ -12,11 +12,11 @@ public class FilterRequest {
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private Date endDate;
 
-	private int adult;
+	private Integer adult;
 
-	private int children;
+	private Integer children;
 
-	private int roomNum;
+	private Integer roomNum;
 
 	public Date getStartDate() {
 		return startDate;
@@ -34,7 +34,7 @@ public class FilterRequest {
 		this.endDate = endDate;
 	}
 
-	public int getAdult() {
+	public Integer getAdult() {
 		return adult;
 	}
 
@@ -42,7 +42,7 @@ public class FilterRequest {
 		this.adult = adult;
 	}
 
-	public int getChildren() {
+	public Integer getChildren() {
 		return children;
 	}
 
@@ -50,7 +50,7 @@ public class FilterRequest {
 		this.children = children;
 	}
 
-	public int getRoomNum() {
+	public Integer getRoomNum() {
 		return roomNum;
 	}
 

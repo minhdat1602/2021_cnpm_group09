@@ -11,4 +11,13 @@ public class MessageResponse {
 		this.message = message;
 	}
 
+	public MessageResponse(String message) {
+		super();
+		this.message = message;
+	}
+
+	public MessageResponse() {
+		super();
+	}
+
 }

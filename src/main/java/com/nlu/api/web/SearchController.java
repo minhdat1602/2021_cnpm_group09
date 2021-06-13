@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.nlu.dto.RoomTypeDTO;
 import com.nlu.payload.request.FilterRequest;
+import com.nlu.payload.response.MessageResponse;
 import com.nlu.payload.response.SearchResponse;
 import com.nlu.service.IRoomTypeService;
 
@@ -20,9 +21,19 @@ public class SearchController {
 
 	@Autowired
 	private IRoomTypeService roomTypeService;
-	
+
 	@GetMapping
 	public ResponseEntity<?> getByFilter(@ModelAttribute FilterRequest filterRequest) {
+
+		if (filterRequest.getAdult() == null || filterRequest.getChildren() == null
+				|| filterRequest.getRoomNum() == null || filterRequest.getEndDate() == null
+				|| filterRequest.getEndDate() == null) {
+			return ResponseEntity.badRequest().body(new MessageResponse("invalid data"));
+		}
+
+		if (filterRequest.getStartDate().compareTo(filterRequest.getEndDate()) >= 0) {
+			return ResponseEntity.badRequest().body(new MessageResponse("invalid date"));
+		}
 
 		int capacity = filterRequest.getAdult() + filterRequest.getChildren() / 2;
 
@@ -33,14 +44,12 @@ public class SearchController {
 
 		response.setListRoomType(listRoomType);
 
-		for (int i = 0; i < listRoomType.size(); i++) {
-			System.out.println(listRoomType.get(i).getName());
-		}
+//		for (int i = 0; i < listRoomType.size(); i++) {
+//			System.out.println(listRoomType.get(i).getName());
+//		}
 
 		return ResponseEntity.ok(response);
 
 	}
-
-	
 
 }

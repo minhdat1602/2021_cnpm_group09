@@ -27,7 +27,6 @@ public class RoomTypeService implements IRoomTypeService {
 			roomTypeEntitys = null;
 			System.out.println(e.getMessage());
 		}
-
 		List<RoomTypeDTO> roomTypeDTOs = new ArrayList<RoomTypeDTO>();
 		for (RoomTypeEntity rte : roomTypeEntitys) {
 			roomTypeDTOs.add(RoomTypeDTO.fromEntity(rte));
