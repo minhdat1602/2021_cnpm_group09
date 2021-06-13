@@ -28,6 +28,7 @@ public class SearchController {
 		if (filterRequest.getAdult() == null || filterRequest.getChildren() == null
 				|| filterRequest.getRoomNum() == null || filterRequest.getEndDate() == null
 				|| filterRequest.getEndDate() == null) {
+			System.out.println("aaaaa");
 			return ResponseEntity.badRequest().body(new MessageResponse("invalid data"));
 		}
 

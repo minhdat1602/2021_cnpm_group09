@@ -322,6 +322,7 @@
 												"endDate" : data["endDate"]
 											},
 											dataType : 'json',
+											
 											success : function(result) {
 												sessionStorage
 														.setItem(
