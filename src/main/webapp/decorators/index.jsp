@@ -273,8 +273,9 @@
 					</div>
 				</div>
 			</div>
-		<input type = "hidden" id = "xmxx" value =  "<c:url value = "/search" />" />
-		<input type = "hidden" id = "xxx" value =  "<c:url value = "/phong-trong" />" />
+			<input type="hidden" id="xmxx" value="<c:url value = "/search" />" />
+			<input type="hidden" id="xxx"
+				value="<c:url value = "/phong-trong" />" />
 		</div>
 		<!-- Header section end -->
 
@@ -288,68 +289,60 @@
 
 	<script>
 		/* import Cookies from 'js-cookie' */
-		$(document)
-				.ready(
-						function() {
-							$('#searchRoom').on(
-									'click',
-									function(event) {
-										event.preventDefault();
-										var data = {};
-										var formData = $('#filterForm')
-												.serializeArray();
-										$.each(formData, function(i, v) {
-											data["" + v.name + ""] = v.value;
-										});
-										console.log(data["roomNum"]);
-										console.log(data["children"]);
-										console.log(data["adult"]);
-										console.log(data["startDate"]);
-										console.log(data["endDate"]);
-										search(data);
-									});
-							function search(data) {
-								$
-										.ajax({
-											url : "" + $("#xmxx").val(),
-											type : 'GET',
-											contentType : 'application/json',
-											data : {
-												"adult" : data['adult'],
-												"children" : data["children"],
-												"roomNum" : data["roomNum"],
-												"startDate" : data["startDate"],
-												"endDate" : data["endDate"]
-											},
-											dataType : 'json',
-											
-											success : function(result) {
-												sessionStorage
-														.setItem(
-																"listRoomType",
-																JSON
-																		.stringify(result.listRoomType));
-												window.location.href = $("#xxx").val();
-											},
-											error : function(error) {
-												alert("Thất bại");
-												alert($("#xmxx").val());
-												alert(error);
-											}
-										});
-							}
+		$(document).ready(
+				function() {
+					$('#searchRoom').on('click', function(event) {
+						event.preventDefault();
+						var data = {};
+						var formData = $('#filterForm').serializeArray();
+						$.each(formData, function(i, v) {
+							data["" + v.name + ""] = v.value;
+						});
+						console.log(data["roomNum"]);
+						console.log(data["children"]);
+						console.log(data["adult"]);
+						console.log(data["startDate"]);
+						console.log(data["endDate"]);
+						search(data);
+					});
+					function search(data) {
+						$.ajax({
+							url : "" + $("#xmxx").val(),
+							type : 'GET',
+							contentType : 'application/json',
+							data : {
+								"adult" : data['adult'],
+								"children" : data["children"],
+								"roomNum" : data["roomNum"],
+								"startDate" : data["startDate"],
+								"endDate" : data["endDate"]
+							},
+							dataType : 'json',
 
-							$('#infor').hover(function() {
-								$('#infor-panel').css('display', 'block');
-							}, function() {
-								$('#infor-panel').css('display', 'none');
-							});
-							$('#infor-panel').hover(function() {
-								$('#infor-panel').css('display', 'block');
-							}, function() {
-								$('#infor-panel').css('display', 'none');
-							});
-						})
+							success : function(result) {
+								sessionStorage.setItem("listRoomType", JSON
+										.stringify(result.listRoomType));
+								window.location.href = $("#xxx").val();
+							},
+							error : function(error) {
+								alert("Thất bại");
+								alert($("#xmxx").val());
+								alert(error);
+							}
+						});
+					}
+
+					$('#infor').hover(function() {
+						$('#infor-panel').css('display', 'block');
+					}, function() {
+						$('#infor-panel').css('display', 'none');
+					});
+					$('#infor-panel').hover(function() {
+						$('#infor-panel').css('display', 'block');
+					}, function() {
+						$('#infor-panel').css('display', 'none');
+					});
+				})
 	</script>
 	<script
 		src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
