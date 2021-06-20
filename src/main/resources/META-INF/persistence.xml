@@ -12,6 +12,9 @@
 		<class>com.nlu.entity.UserEntity</class>
 		<class>com.nlu.entity.UserGroupEntity</class>
 		<class>com.nlu.entity.RoleEntity</class>
+		<class>com.nlu.entity.ConvenientEntity</class>
+		<class>com.nlu.entity.PaymentMethodEntity</class>
+		<class>com.nlu.entity.PaymentsEntity</class>
 	</persistence-unit>
 </persistence>
 

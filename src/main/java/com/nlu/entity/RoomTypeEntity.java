@@ -1,9 +1,13 @@
 package com.nlu.entity;
 
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -24,17 +28,22 @@ public class RoomTypeEntity extends BaseEntity {
 
 	@Column
 	private String image;
-	
+
 	@Column
 	private int active;
 
 	@Column(name = "max_capacity")
 	private int capacity;
-	
+
 	@JsonManagedReference
 	@OneToMany(mappedBy = "type", targetEntity = RoomEntity.class)
 	private List<RoomEntity> rooms;
 
+	@ManyToMany
+	@JoinTable(name = "convenient_like", joinColumns = @JoinColumn(name = "roomType_id"), inverseJoinColumns = @JoinColumn(name = "convenent_id"))
+	Set<ConvenientEntity> likedConvenience;
+
+	
 	public String getName() {
 		return name;
 	}
@@ -81,6 +90,22 @@ public class RoomTypeEntity extends BaseEntity {
 
 	public void setRooms(List<RoomEntity> rooms) {
 		this.rooms = rooms;
+	}
+
+	public int getActive() {
+		return active;
+	}
+
+	public void setActive(int active) {
+		this.active = active;
+	}
+
+	public Set<ConvenientEntity> getLikedConvenience() {
+		return likedConvenience;
+	}
+
+	public void setLikedConvenience(Set<ConvenientEntity> likedConvenience) {
+		this.likedConvenience = likedConvenience;
 	}
 
 }

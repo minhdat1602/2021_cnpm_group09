@@ -10,4 +10,5 @@ public interface IRoomTypeService {
 	List<RoomTypeDTO> getByFilter(int capacity, int roomNum, Date startDate, Date endDate);
 
 	RoomTypeEntity findById(long id);
+	RoomTypeDTO findOne(long id);
 }

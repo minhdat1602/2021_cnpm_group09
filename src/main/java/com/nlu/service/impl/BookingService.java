@@ -32,8 +32,13 @@ public class BookingService implements IBookingService {
 		try {
 			booking = new BookingEntity();
 			
+			
 			CustomerEntity customer = new CustomerEntity();
 			customer.setFullname(bookingInfoRequest.getFullname());
+			System.out.println(customer.getFullname());
+			System.out.println(customer.getCreatedBy());
+			System.out.println(customer.getModifiedBy());
+			
 			customer.setEmail(bookingInfoRequest.getEmail());
 			customer = customerRepository.save(customer);
 

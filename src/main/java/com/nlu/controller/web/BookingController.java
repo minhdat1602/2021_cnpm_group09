@@ -37,7 +37,9 @@ public class BookingController {
 	public ModelAndView booking(@ModelAttribute BookingInfoRequest bookingInfoRequest) {
 		ModelAndView mav = new ModelAndView("web/booking_done");
 		try {
+			System.out.println(bookingInfoRequest.getPrice());
 			BookingEntity booking = bookingService.save(bookingInfoRequest);
+			System.out.println(bookingInfoRequest.getPrice());
 			mav.addObject("booking", booking);
 			mav.addObject("requestObj", bookingInfoRequest);
 

@@ -1,5 +1,8 @@
 package com.nlu.dto;
 
+import java.util.Set;
+
+import com.nlu.entity.ConvenientEntity;
 import com.nlu.entity.RoomTypeEntity;
 
 public class RoomTypeDTO {
@@ -16,6 +19,8 @@ public class RoomTypeDTO {
 
 	private int capacity;
 
+	private Set<ConvenientDTO> convenients;
+
 	public static RoomTypeDTO fromEntity(RoomTypeEntity roomTypeEntity) {
 		RoomTypeDTO result = new RoomTypeDTO();
 
@@ -27,6 +32,14 @@ public class RoomTypeDTO {
 		result.setCapacity(roomTypeEntity.getCapacity());
 
 		return result;
+	}
+
+	public Set<ConvenientDTO> getConvenients() {
+		return convenients;
+	}
+
+	public void setConvenients(Set<ConvenientDTO> convenients) {
+		this.convenients = convenients;
 	}
 
 	public long getId() {

@@ -7,6 +7,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.nlu.converter.RoomTypeConverter;
 import com.nlu.dto.RoomTypeDTO;
 import com.nlu.entity.RoomTypeEntity;
 import com.nlu.repository.RoomTypeRepository;
@@ -17,6 +18,8 @@ public class RoomTypeService implements IRoomTypeService {
 
 	@Autowired
 	private RoomTypeRepository roomTypeRepository;
+	@Autowired
+	private RoomTypeConverter roomTypeConverter;
 
 	@Override
 	public List<RoomTypeDTO> getByFilter(int capacity, int roomNum, Date startDate, Date endDate) {
@@ -37,6 +40,13 @@ public class RoomTypeService implements IRoomTypeService {
 	@Override
 	public RoomTypeEntity findById(long id) {
 		return roomTypeRepository.findById(id);
+	}
+
+	@Override
+	public RoomTypeDTO findOne(long id) {
+		// TODO Auto-generated method stub
+		RoomTypeEntity rte = this.roomTypeRepository.findOne(id);
+		return this.roomTypeConverter.toDTO(rte);
 	}
 
 }
