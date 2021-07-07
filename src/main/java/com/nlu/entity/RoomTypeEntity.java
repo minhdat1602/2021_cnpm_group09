@@ -1,5 +1,6 @@
 package com.nlu.entity;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -39,11 +40,15 @@ public class RoomTypeEntity extends BaseEntity {
 	@OneToMany(mappedBy = "type", targetEntity = RoomEntity.class)
 	private List<RoomEntity> rooms;
 
+//	n-n (RoomType vs Convenient)
 	@ManyToMany
 	@JoinTable(name = "convenient_like", joinColumns = @JoinColumn(name = "roomType_id"), inverseJoinColumns = @JoinColumn(name = "convenent_id"))
 	Set<ConvenientEntity> likedConvenience;
 
-	
+	@ManyToMany
+	@JoinTable(name = "roomType_paymentMethd", joinColumns = @JoinColumn(name = "roomType_id"), inverseJoinColumns = @JoinColumn(name = "paymentMethod_id"))
+	private Set<PaymentMethodEntity> paymentMethods = new HashSet<PaymentMethodEntity>();
+
 	public String getName() {
 		return name;
 	}

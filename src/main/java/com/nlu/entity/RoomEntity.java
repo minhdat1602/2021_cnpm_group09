@@ -26,6 +26,7 @@ public class RoomEntity extends BaseEntity {
 	@JoinColumn(name = "room_type_id")
 	private RoomTypeEntity type;
 	
+	
 	@JsonBackReference
 	@OneToMany(mappedBy = "room", targetEntity = BookingEntity.class)
 	private List<BookingEntity> bookings;

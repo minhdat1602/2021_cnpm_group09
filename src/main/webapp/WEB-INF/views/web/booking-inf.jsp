@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@include file="/common/taglib.jsp"%>
-<c:url var="personaInflURL" value="/booking-room/thong-tin-khach-hang"/>
+<c:url var="personaInflURL" value="/booking-room/thong-tin-khach-hang" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -68,21 +68,22 @@
 							<div class="submit-form mt-25">
 								<button id="bookingBtn" type="button">Đặt phòng</button>
 							</div>
-							
-							
-							
+
+							<input type="hidden" id="roomId" value="${ room.id }" />
+
 						</div>
 					</div>
 
 				</div>
 			</div>
 		</div>
-
-		<script type="text/javascript">
-			$('#bookingBtn').click(function(e) {
-				e.preventDefault();
-				window.location.href = "${personaInflURL}";
-			});
-		</script>
+	</div>
+	<script type="text/javascript">
+		$('#bookingBtn').click(function(e) {
+			e.preventDefault();
+			var roomId = $('#roomId').val();
+			window.location.href = "${personaInflURL}?id="+roomId;
+		});
+	</script>
 </body>
 </html>

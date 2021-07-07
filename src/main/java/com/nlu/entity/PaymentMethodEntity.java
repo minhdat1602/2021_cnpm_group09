@@ -1,13 +1,17 @@
 package com.nlu.entity;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "payment-method")
+@Table(name = "payment_method")
 public class PaymentMethodEntity extends BaseEntity {
 	@Column(name = "name")
 	private String name;
@@ -15,7 +19,10 @@ public class PaymentMethodEntity extends BaseEntity {
 	private String code;
 	@Column(name = "description")
 	private String description;
-	
+
+	@ManyToMany(mappedBy = "paymentMethods")
+	private Set<RoomTypeEntity> roomTypes = new HashSet<RoomTypeEntity>();
+
 	public String getName() {
 		return name;
 	}

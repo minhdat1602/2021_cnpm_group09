@@ -40,8 +40,10 @@ public class BookingInfController {
 	}
 
 	@RequestMapping(value = "/thong-tin-khach-hang", method = RequestMethod.GET)
-	public ModelAndView getPersonalInf() {
+	public ModelAndView getPersonalInf(@RequestParam(value = "id") Long roomId) {
 		ModelAndView mav = new ModelAndView("web/personal-inf");
+		RoomDTO roomDTO = roomService.findOne(roomId);
+		mav.addObject("room",roomDTO);
 		return mav;
 	}
 

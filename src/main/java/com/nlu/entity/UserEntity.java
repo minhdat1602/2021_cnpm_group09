@@ -1,11 +1,15 @@
 package com.nlu.entity;
 
 import java.sql.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -40,24 +44,13 @@ public class UserEntity extends BaseEntity {
 	@Column(name = "status", nullable = false)
 	private Integer status;
 
-//	@ManyToOne(fetch = FetchType.LAZY)
-//	@JoinColumn(name = "user_type_id")
-//	private UserTypeEntity type;
-
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "group_id")
 	private UserGroupEntity group;
 
-//	@OneToMany(mappedBy = "user")
-//	private List<BookingEntity> bookings = new ArrayList<BookingEntity>();
-
-//	public UserTypeEntity getType() {
-//		return type;
-//	}
-//
-//	public void setType(UserTypeEntity type) {
-//		this.type = type;
-//	}
+	@ManyToMany
+	@JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "userId"), inverseJoinColumns = @JoinColumn(name = "roleId"))
+	private Set<RoleEntity> roless = new HashSet<RoleEntity>();
 
 	public String getUsername() {
 		return username;
