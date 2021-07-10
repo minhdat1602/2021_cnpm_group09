@@ -20,12 +20,15 @@
 				<c:if test="${param.accessDenied != null}">
 					<div class="alert alert-danger">Bạn không có quyền !</div>
 				</c:if>
+				
+				<!-- FORM -->
 				<form action="j_spring_security_check" id="formLogin" method="post">
+					<!-- Username -->
 					<div class="form-group">
 						<input type="text" class="form-control" id="userName"
 							name="j_username" placeholder="Tên đăng nhập">
 					</div>
-
+					<!-- Password -->
 					<div class="form-group">
 						<input type="password" class="form-control" id="password"
 							name="j_password" placeholder="Mật khẩu">
@@ -33,6 +36,7 @@
 					<button type="submit" class="btn btn-primary"
 						style="text-align: center;">Đăng nhập</button>
 				</form>
+				
 			</div>
 		</div>
 	</div>

@@ -23,7 +23,7 @@
 
 
 						<div class="room-booking-box">
-							<form:form id="bookingForm" "
+							<form:form id="bookingForm"
 								action='<c:url value = "/dat-phong" />'>
 								<div class="booking-box1 mb-15 fix">
 									<div class="booking-filed">

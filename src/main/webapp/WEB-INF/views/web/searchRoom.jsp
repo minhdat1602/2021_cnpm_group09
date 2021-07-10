@@ -13,7 +13,6 @@
 
                             
          <div class="booking-box">
-            
              <div class="booking-form">
                  <form id = "formSubmit" action="${searchAPI}" method="get"> 
                      <div class="b-date arrive mb-15">

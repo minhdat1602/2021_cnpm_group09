@@ -26,17 +26,17 @@
 							</div>
 							<div class="room-rent fix mb-45">
 								<div class="room-rent-img">
-									<img src="${ roomType.image}"
+									<img src="${ room.image}"
 										style="width: 192px !important; height: 119px; !important"
 										alt="hinh anh phong">
 								</div>
 								<div class="room-rent-desc">
-									<h3 class="roome-rent-title">${roomType.name }</h3>
+									<h3 class="roome-rent-title">${ room.roomName }</h3>
 									<div class="room-sub-desc">
 										<h4>Giá tối đa cho: người lớn</h4>
 										<h4>Giá phòng</h4>
 										<h3>
-											${ roomType.price }<span> / Đêm</span>
+											${ room.price }<span> / Đêm</span>
 										</h3>
 									</div>
 								</div>
@@ -44,7 +44,7 @@
 
 							<div class="room-social-share mb-45">
 								<h3>Các tiện nghi có sẵn</h3>
-								<c:forEach items="${conveniences}" var="convenience">
+								<c:forEach items="${room.convenients}" var="convenience">
 									<h4>${convenience.name}</h4>
 								</c:forEach>
 							</div>
@@ -66,10 +66,12 @@
 								</h4>
 							</div>
 							<div class="submit-form mt-25">
-								<button id="bookingBtn" type="button">Đặt phòng</button>
+								<c:url var="userInfAPI" value="/user"> 
+									<c:param name="roomId" value="${ room.id }"/>
+								</c:url>
+								<a id="bookingBtn" type="button" href ="${ userInfAPI }">Bước tiếp theo</a>
 							</div>
 
-							<input type="hidden" id="roomId" value="${ room.id }" />
 
 						</div>
 					</div>
@@ -79,11 +81,6 @@
 		</div>
 	</div>
 	<script type="text/javascript">
-		$('#bookingBtn').click(function(e) {
-			e.preventDefault();
-			var roomId = $('#roomId').val();
-			window.location.href = "${personaInflURL}?id="+roomId;
-		});
 	</script>
 </body>
 </html>

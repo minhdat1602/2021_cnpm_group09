@@ -30,7 +30,7 @@ public class CustomUserDetailsService implements UserDetailsService {
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		UserEntity userEntity = userRepository.findOneByUsernameAndStatus(username, 1);
-		
+		System.out.println(userEntity);
 		if (userEntity == null) {
 			throw new UsernameNotFoundException("User not found");
 		}
