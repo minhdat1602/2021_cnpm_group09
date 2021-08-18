@@ -49,10 +49,6 @@ public class SearchController {
 
 		response.setListRoomType(listRoomType);
 
-//		for (int i = 0; i < listRoomType.size(); i++) {
-//			System.out.println(listRoomType.get(i).getName());
-//		}
-
 		return ResponseEntity.ok(response);
 
 	}

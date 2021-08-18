@@ -99,7 +99,7 @@
 			<scope>provided</scope>
 		</dependency>
 
-		<!-- jsp api -->
+		<!-- jsp -->
 		<dependency>
 			<groupId>javax.servlet.jsp</groupId>
 			<artifactId>javax.servlet.jsp-api</artifactId>
@@ -179,26 +179,21 @@
 			<version>1.9.13</version>
 		</dependency>
 		<!--end json -->
+
+
 		<!-- https://mvnrepository.com/artifact/org.modelmapper/modelmapper -->
 		<dependency>
 			<groupId>org.modelmapper</groupId>
 			<artifactId>modelmapper</artifactId>
 			<version>2.3.8</version>
 		</dependency>
-		<!-- Tomcat embedded -->
-		<!-- <dependency> <groupId>org.apache.tomcat.embed</groupId> <artifactId>tomcat-embed-core</artifactId> 
-			<version>${tomcat.version}</version> </dependency> <dependency> <groupId>org.apache.tomcat.embed</groupId> 
-			<artifactId>tomcat-embed-jasper</artifactId> <version>${tomcat.version}</version> 
-			</dependency> <dependency> <groupId>org.apache.tomcat</groupId> <artifactId>tomcat-jasper</artifactId> 
-			<version>${tomcat.version}</version> </dependency> <dependency> <groupId>org.apache.tomcat</groupId> 
-			<artifactId>tomcat-jasper-el</artifactId> <version>${tomcat.version}</version> 
-			</dependency> <dependency> <groupId>org.apache.tomcat</groupId> <artifactId>tomcat-jsp-api</artifactId> 
-			<version>${tomcat.version}</version> </dependency> -->
+
 		<dependency>
 			<groupId>commons-logging</groupId>
 			<artifactId>commons-logging</artifactId>
 			<version>1.2</version>
 		</dependency>
+
 	</dependencies>
 
 	<build>
@@ -235,11 +230,7 @@
 					</execution>
 				</executions>
 			</plugin>
-			<!-- <plugin> <groupId>org.codehaus.mojo</groupId> <artifactId>appassembler-maven-plugin</artifactId> 
-				<version>2.0.0</version> <configuration> <assembleDirectory>target</assembleDirectory> 
-				<programs> <program> <mainClass>launch.Main</mainClass> <name>webapp</name> 
-				</program> </programs> </configuration> <executions> <execution> <phase>package</phase> 
-				<goals> <goal>assemble</goal> </goals> </execution> </executions> </plugin> -->
+
 		</plugins>
 	</build>
 </project>
