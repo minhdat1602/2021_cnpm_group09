@@ -23,8 +23,6 @@ public class HomeAPI {
 	@Autowired
 	IRoomService roomService;
 
-	@Autowired
-	private UserRepository userRepository;
 
 	@GetMapping(value = "/trang-chu")
 	public ModelAndView homePage() {
