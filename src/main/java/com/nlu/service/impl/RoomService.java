@@ -43,4 +43,10 @@ public class RoomService implements IRoomService {
 
 		return result;
 	}
+
+	@Override
+	public RoomEntity findOneEnttiy(Long id) {
+		// TODO Auto-generated method stub
+		return this.roomRepository.findById(id);
+	}
 }

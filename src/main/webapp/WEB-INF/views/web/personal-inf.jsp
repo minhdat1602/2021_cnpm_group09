@@ -24,7 +24,8 @@
 
 
 						<div class="room-booking-box">
-							<c:url var="orderDetail" value="/booking/payment-inf"></c:url>
+							<c:url var="orderDetail"
+								value="/booking/payment-inf?roomId=${ roomId }"></c:url>
 							<form:form id="bookingForm" modelAttribute="bookingPayload"
 								action="${ orderDetail }">
 								<div class="booking-box1 mb-15 fix">

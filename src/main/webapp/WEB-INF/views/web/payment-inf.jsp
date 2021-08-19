@@ -25,9 +25,10 @@
 							<div class="tab-content">
 								<div role="tabpanel" class="tab-pane active" id="payment">
 									<div class="payment-info">
-										<c:url var="orderDetail" value="/booking/booking-done"></c:url>
+										<c:url var="orderDetail"
+											value="/booking/booking-done?roomId=${ roomId }"></c:url>
 										<form:form modelAttribute="paymentInfPayload"
-											action="${ orderDetail }">
+											id="paymentInfPayload" action="${ orderDetail }">
 											<div class="payment-form">
 												<div class="payment-form-list">
 													<div class="single_form">
@@ -43,7 +44,8 @@
 													</div>
 													<div class="single_form">
 														<label>Expired Time:</label>
-														<form:input type="date" path="expriedTime" placeholder="Enter Expired Time" />
+														<form:input type="date" path="expriedTime"
+															placeholder="Enter Expired Time" />
 													</div>
 												</div>
 												<div class="pay-money-form mt-40">
@@ -109,5 +111,29 @@
 		</div>
 	</div>
 	<!--room booking end-->
+	<script type="text/javascript">
+		$("#CLICK").click(function(e) {
+			e.preventDefault(); // avoid to execute the actual submit of the form.
+			/* var personalInf = $
+			{
+				bookingPayload
+			} */
+			var form = $(this);
+			var url = form.attr('action');
+			var myData = {
+				"email" : "che607@yahoo.com"
+			}
+			$.ajax({
+				url : '/phong-trong',
+				type : 'GET',
+				contentType : 'application/json',
+				data : JSON.stringify(myData),
+				dataType : 'json',
+				success : function(result) {
+					alert(result)
+				}
+			});
+		});
+	</script>
 </body>
 </html>

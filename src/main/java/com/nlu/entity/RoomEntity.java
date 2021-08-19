@@ -20,16 +20,26 @@ public class RoomEntity extends BaseEntity {
 
 	@Column
 	private int active;
-	
+
 	@JsonBackReference
 	@ManyToOne
 	@JoinColumn(name = "room_type_id")
 	private RoomTypeEntity type;
-	
-	
+
 	@JsonBackReference
 	@OneToMany(mappedBy = "room", targetEntity = BookingEntity.class)
 	private List<BookingEntity> bookings;
+
+	@OneToMany(mappedBy = "room")
+	private List<OrderEntity> orders;
+
+	public List<OrderEntity> getOrders() {
+		return orders;
+	}
+
+	public void setOrders(List<OrderEntity> orders) {
+		this.orders = orders;
+	}
 
 	public String getNumber() {
 		return number;

@@ -1,6 +1,7 @@
 package com.nlu.payload;
 
 public class BookingPayload {
+	long roomId;
 	String name;
 	String email;
 	String arrivalDate;
@@ -8,32 +9,22 @@ public class BookingPayload {
 	int maxCapacity;
 	String roomNumber;
 	String note;
-	String cardHolderName;
-	String cardNumber;
-	String expriedTime;
+	String phoneNumber;
 
-	public String getCardHolderName() {
-		return cardHolderName;
+	public long getRoomId() {
+		return roomId;
 	}
 
-	public void setCardHolderName(String cardHolderName) {
-		this.cardHolderName = cardHolderName;
+	public void setRoomId(long roomId) {
+		this.roomId = roomId;
 	}
 
-	public String getCardNumber() {
-		return cardNumber;
+	public String getPhoneNumber() {
+		return phoneNumber;
 	}
 
-	public void setCardNumber(String cardNumber) {
-		this.cardNumber = cardNumber;
-	}
-
-	public String getExpriedTime() {
-		return expriedTime;
-	}
-
-	public void setExpriedTime(String expriedTime) {
-		this.expriedTime = expriedTime;
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
 	}
 
 	public int getMaxCapacity() {
@@ -96,8 +87,7 @@ public class BookingPayload {
 	public String toString() {
 		return "BookingPayload [name=" + name + ", email=" + email + ", arrivalDate=" + arrivalDate + ", departureDate="
 				+ departureDate + ", maxCapacity=" + maxCapacity + ", roomNumber=" + roomNumber + ", note=" + note
-				+ ", cardHolderName=" + cardHolderName + ", cardNumber=" + cardNumber + ", expriedTime=" + expriedTime
-				+ "]";
+				+ ", phoneNumber=" + phoneNumber + "]";
 	}
 
 }
