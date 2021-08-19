@@ -10,9 +10,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.nlu.dto.RoomDTO;
 import com.nlu.entity.BookingEntity;
 import com.nlu.entity.RoomTypeEntity;
 import com.nlu.payload.request.BookingInfoRequest;
+import com.nlu.service.IRoomService;
+import com.nlu.service.IRoomTypeService;
 import com.nlu.service.impl.BookingService;
 import com.nlu.service.impl.RoomTypeService;
 
@@ -53,4 +56,7 @@ public class BookingController {
 		}
 		return mav;
 	}
+	
+	@Autowired
+	IRoomService roomService;
 }

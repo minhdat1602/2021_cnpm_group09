@@ -191,7 +191,7 @@ img {
 /*  3.  Header Css
 /*----------------------------------------*/
 .header-section {
-	background: url(images/bg/b-1.jpg) no-repeat scroll center center;
+	background: url(images/bg.jpg) no-repeat scroll center center;
 	background-size: cover;
 }
 
@@ -2823,13 +2823,15 @@ h3.news-title {
 }
 
 .booking-done-table {
-	float: left;
+	/* float: left; */
+	margin:auto;
 	padding-right: 30px;
 	width: 50%;
 }
 
 .booking-done-description {
-	float: left;
+	/* float: left; */
+	margin:auto;
 	padding-left: 30px;
 	width: 50%;
 }

@@ -26,6 +26,16 @@ import com.nlu.service.IRoomTypeService;
 @RequestMapping(value = "/booking")
 public class BookinggController {
 
+//	@Autowired
+//	IRoomService roomService;
+//	@Autowired
+//	IRoomTypeService roomTypeService;
+//	
+//	@GetMapping()
+//	public ModelAndView getBookingInf(@RequestParam(value = "roomId") Long roomId) {
+//		RoomDTO roomDTO = this.roomService.findOne(roomId);
+//		ModelAndView mav = new ModelAndView("web/booking-inf");
+//		mav.addObject("room", roomDTO);
 	@Autowired
 	IRoomService roomService;
 	@Autowired
