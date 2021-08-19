@@ -87,7 +87,7 @@
 											</h5>
 										</div>
 										<div class="room-book">
-											<c:url var="APIbooking" value="/booking">
+											<c:url var="APIbooking" value="/booking/booking-inf">
 												<c:param name="roomId" value="${ room.id }"/>
 											</c:url>
 										

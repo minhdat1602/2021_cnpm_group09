@@ -66,10 +66,10 @@
 								</h4>
 							</div>
 							<div class="submit-form mt-25">
-								<c:url var="userInfAPI" value="/user"> 
+								<c:url var="personalInfAPI" value="/booking/personal-inf"> 
 									<c:param name="roomId" value="${ room.id }"/>
 								</c:url>
-								<a id="bookingBtn" type="button" href ="${ userInfAPI }">Bước tiếp theo</a>
+								<a id="bookingBtn" type="button" href ="${ personalInfAPI }">Bước tiếp theo</a>
 							</div>
 
 

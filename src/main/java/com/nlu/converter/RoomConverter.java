@@ -23,6 +23,7 @@ public class RoomConverter {
 		result.setMaxCapacity(roomTypeEntity.getCapacity());
 		result.setDescription(roomTypeEntity.getDescription());
 		result.setImage(roomTypeEntity.getImage());
+		result.setNumber(roomEntity.getNumber());
 		String roomname = roomTypeEntity.getName() + roomEntity.getNumber();
 		result.setRoomName(roomname);
 		result.setPrice(roomTypeEntity.getPrice());

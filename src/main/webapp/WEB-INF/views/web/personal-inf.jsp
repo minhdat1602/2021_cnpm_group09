@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@include file="/common/taglib.jsp"%>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,56 +24,45 @@
 
 
 						<div class="room-booking-box">
-							<form:form id="bookingForm"
-								action='<c:url value = "/dat-phong" />'>
+							<c:url var="orderDetail" value="/booking/payment-inf"></c:url>
+							<form:form id="bookingForm" modelAttribute="bookingPayload"
+								action="${ orderDetail }">
 								<div class="booking-box1 mb-15 fix">
 									<div class="booking-filed">
-										<input type="text" placeholder="Họ tên" value="Your name">
+										<form:input path="name" placeholder="Họ và tên" />
 									</div>
 									<div class="booking-filed">
-										<input type="text" placeholder="Địa chỉ email"
-											value="Your email"> <input type="hidden" name="price"
-											value="${roomType.price}">
+										<form:input path="email" placeholder="Email" />
 									</div>
 								</div>
 								<div class="booking-box2 mb-15 fix">
 									<div class="b_date">
-										<input id="dateFrom" name="startDate" value="25/06/2021"
-											class="date-picker" type="text" placeholder="Ngày đến">
+										<form:input id="arrivalDate" path="arrivalDate" type="date"
+											placeholder="Ngày đến" />
 									</div>
 									<div class="b_date">
-										<input id="dateTo" name="endDate" value="26/06/2021"
-											class="date-picker" type="text" placeholder="Ngày đi">
+										<form:input id="departureDate" path="departureDate"
+											type="date" placeholder="Ngày đi" />
 									</div>
 								</div>
-								<div class="booking-box3 mb-15 fix">
-									<div class="select_book">
-										<select id="adult" name="adult" class="">
-											<option disabled>Số người lượng lớn</option>
-											<option value="1">1 người lớn</option>
-											<option value="2">2 người lớn</option>
-											<option value="3">3 người lớn</option>
-											<option value="4">4 người lớn</option>
-											<option value="5">5 người lớn</option>
-										</select>
+								<div class="booking-box1 mb-15 fix">
+									<div class="booking-filed">
+										<form:select path="roomNumber">
+											<form:option value="${ bookingPayload.roomNumber }">Phòng số ${ bookingPayload.roomNumber }</form:option>
+										</form:select>
 									</div>
-									<div class="select_book">
-										<select id="children" name="children" class="">
-											<option disabled>Số lượng trẻ em</option>
-											<option value="0">0 trẻ em</option>
-											<option value="1">1 trẻ em</option>
-											<option value="2">2 trẻ em</option>
-											<option value="3">3 trẻ em</option>
-											<option value="4">4 trẻ em</option>
-											<option value="5">5 trẻ em</option>
-										</select>
+									<div class="booking-filed">
+										<form:select id="adult" path="maxCapacity">
+											<form:option value="0" disabled="true">Số lượng người</form:option>
+											<c:forEach var="i" begin="1"
+												end="${ bookingPayload.maxCapacity }">
+												<form:option value="${ i }">${ i } người</form:option>
+											</c:forEach>
+										</form:select>
 									</div>
-								</div>
-								<div class="select-book room  mb-15 fix">
-									<input type="text" disabled value="Phòng số ${ room.number }">
 								</div>
 								<div class="booking-comment fix">
-									<textarea placeholder="Ghi chú" name="notes"></textarea>
+									<form:textarea placeholder="Ghi chú" path="note"></form:textarea>
 								</div>
 								<div class="submit-form mt-25">
 									<button id="bookingBtn" type="submit">Đặt phòng</button>
@@ -85,35 +75,21 @@
 		</div>
 	</div>
 	<!--room booking end-->
-
-</body>
-<script>
-	/* $(document).ready(function() {
-		$('#bookingBtn').on('click', function(event) {
-			event.preventDefault();
-			var data = {};
-			var formData = $('#bookingForm').serializeArray();
-			$.each(formData, function(i, v) {
-				data["" + v.name + ""] = v.value;
-			});
-
-			booking(data);
-		});
-		function booking(data) {
-			$.ajax({
-				url : 'http://localhost:8080/qlks/dat-phong',
-				type : 'POST',
-				contentType : 'application/json',
-				data : data,
-				success : function(result) {
-					console.log("booking successful !")
-				},
-				error : function(error) {
-					console.log("booking failed !");
-				}
-			});
+	<script>
+		var today = new Date();
+		var dd = today.getDate();
+		var mm = today.getMonth() + 1; //January is 0 so need to add 1 to make it 1!
+		var yyyy = today.getFullYear();
+		if (dd < 10) {
+			dd = '0' + dd
 		}
-	}) */
-</script>
+		if (mm < 10) {
+			mm = '0' + mm
+		}
 
+		today = yyyy + '-' + mm + '-' + dd;
+		document.getElementById("arrivalDate").setAttribute("min", today);
+		document.getElementById("departureDate").setAttribute("min", today);
+	</script>
+</body>
 </html>

@@ -4,12 +4,21 @@ import java.util.Set;
 
 public class RoomDTO extends AbstractDTO<RoomDTO> {
 	private int active;
+	private String number;
 	private int maxCapacity;
 	private String description;
 	private String image;
 	private String roomName;
 	private double price;
 	private Set<ConvenientDTO> convenients;
+
+	public String getNumber() {
+		return number;
+	}
+
+	public void setNumber(String number) {
+		this.number = number;
+	}
 
 	public Set<ConvenientDTO> getConvenients() {
 		return convenients;
