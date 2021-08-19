@@ -13,7 +13,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
-					<div class="section-title mb-80 text-center">
+					<div class="section-title mb-20 text-center">
 						<h2>
 							Booking <span>rooms</span>
 						</h2>
@@ -27,37 +27,6 @@
 						<div class="tab-content">
 							<div role="tabpanel" class="tab-pane active" id="done">
 								<div class="booking-done">
-									<div class="booking-done-table table-responsive text-center">
-										<table class="table">
-											<tr>
-												<td><p>Phòng ${booking.room.number}
-														<span>${requestObj.adult} Người lớn &
-															${requestObj.children} trẻ em</span>
-													</p></td>
-												<td><p>
-														${requestObj.price} VNĐ <span>Đêm</span>
-													</p></td>
-												<td><p>
-														${day} <span>Đêm</span>
-													</p></td>
-												<td><p>${requestObj.price * day} VNĐ</p></td>
-											</tr>
-											<tr class="row2">
-												<td><p>
-														tax <span>20% tax</span>
-													</p></td>
-												<td></td>
-												<td></td>
-												<td><p>${requestObj.price * day * 0.2} VNĐ</p></td>
-											</tr>
-											<tr class="row3">
-												<td><p>Total</p></td>
-												<td></td>
-												<td></td>
-												<td><p>${requestObj.price * day * 0.8} VNĐ</p></td>
-											</tr>
-										</table>
-									</div>
 									<div class="booking-done-description">
 										<!-- <p>There are many variations of passages of Lorem Ipsum
 											available, but the majority have suffered alteration in some
@@ -66,6 +35,38 @@
 											<strong>Bạn đã đặt phòng thành công !!</strong>
 										</div>
 									</div>
+									<div class="booking-done-table table-responsive text-center">
+										<table class="table">
+											<tr>
+												<td><p>
+														Phòng ${booking.room.number} <span>${requestObj.adult}
+															Người lớn & ${requestObj.children} trẻ em</span>
+													</p></td>
+												<td><p>
+														${requestObj.price} VNĐ <span>Đêm</span>
+													</p></td>
+												<td><p>
+														${day} <span>Đêm</span>
+													</p></td>
+												<td><p>${requestObj.price * day}VNĐ</p></td>
+											</tr>
+											<tr class="row2">
+												<td><p>
+														tax <span>5% tax</span>
+													</p></td>
+												<td></td>
+												<td></td>
+												<td><p>${requestObj.price * day * 0.05}VNĐ</p></td>
+											</tr>
+											<tr class="row3">
+												<td><p>Total</p></td>
+												<td></td>
+												<td></td>
+												<td><p>${requestObj.price * day + requestObj.price * day * 0.05}VNĐ</p></td>
+											</tr>
+										</table>
+									</div>
+
 								</div>
 							</div>
 						</div>
