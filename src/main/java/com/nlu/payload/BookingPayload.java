@@ -9,7 +9,16 @@ public class BookingPayload {
 	int maxCapacity;
 	String roomNumber;
 	String note;
-	String phoneNumber;
+	String phomeNumber;
+	String cmnd;
+
+	public String getCmnd() {
+		return cmnd;
+	}
+
+	public void setCmnd(String cmnd) {
+		this.cmnd = cmnd;
+	}
 
 	public long getRoomId() {
 		return roomId;
@@ -19,12 +28,12 @@ public class BookingPayload {
 		this.roomId = roomId;
 	}
 
-	public String getPhoneNumber() {
-		return phoneNumber;
+	public String getPhomeNumber() {
+		return phomeNumber;
 	}
 
-	public void setPhoneNumber(String phoneNumber) {
-		this.phoneNumber = phoneNumber;
+	public void setPhomeNumber(String phomeNumber) {
+		this.phomeNumber = phomeNumber;
 	}
 
 	public int getMaxCapacity() {
@@ -87,7 +96,7 @@ public class BookingPayload {
 	public String toString() {
 		return "BookingPayload [name=" + name + ", email=" + email + ", arrivalDate=" + arrivalDate + ", departureDate="
 				+ departureDate + ", maxCapacity=" + maxCapacity + ", roomNumber=" + roomNumber + ", note=" + note
-				+ ", phoneNumber=" + phoneNumber + "]";
+				+ ", phoneNumber=" + phomeNumber + "]";
 	}
 
 }

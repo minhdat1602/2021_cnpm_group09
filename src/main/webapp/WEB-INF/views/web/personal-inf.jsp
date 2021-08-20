@@ -36,6 +36,14 @@
 										<form:input path="email" placeholder="Email" />
 									</div>
 								</div>
+								<div class="booking-box1 mb-15 fix">
+									<div class="booking-filed">
+										<form:input path="cmnd" placeholder="Chứng minh nhân dân" />
+									</div>
+									<div class="booking-filed">
+										<form:input path="phomeNumber" placeholder="Số điện thoại" />
+									</div>
+								</div>
 								<div class="booking-box2 mb-15 fix">
 									<div class="b_date">
 										<form:input id="arrivalDate" path="arrivalDate" type="date"

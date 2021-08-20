@@ -18,6 +18,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import com.google.gson.Gson;
 import com.mysql.cj.x.protobuf.MysqlxCrud.Order;
+import com.nlu.dto.OrderInfDTO;
 import com.nlu.dto.RoomDTO;
 import com.nlu.entity.CardEntity;
 import com.nlu.entity.OrderEntity;
@@ -28,6 +29,7 @@ import com.nlu.service.ICardService;
 import com.nlu.service.IOrderService;
 import com.nlu.service.IRoomService;
 import com.nlu.service.IRoomTypeService;
+import com.nlu.util.DateProcess;
 
 @Controller
 @RequestMapping(value = "/booking")
@@ -86,8 +88,11 @@ public class BookinggController {
 		order.setEmail(bookingPayload.getName());
 		order.setMaxCapacity(String.valueOf(bookingPayload.getMaxCapacity()));
 		order.setNote(bookingPayload.getNote());
-		order.setPhomeNumber(bookingPayload.getPhoneNumber());
+		order.setPhomeNumber(bookingPayload.getPhomeNumber());
+		order.setCmnd(bookingPayload.getCmnd());
 		order.setRoom(this.roomService.findOneEnttiy(roomId));
+		order.setArrivalDate(bookingPayload.getArrivalDate());
+		order.setDepartureDate(bookingPayload.getDepartureDate());
 		ModelAndView mav = new ModelAndView("web/payment-inf");
 		OrderEntity orderSaved = this.orderService.saveAndFush(order);
 		mav.addObject("orderId", orderSaved.getId());
@@ -106,6 +111,20 @@ public class BookinggController {
 		order.setCard(cardSaved);
 		this.orderService.saveAndFush(order);
 		ModelAndView mav = new ModelAndView("web/booking-done");
+		OrderInfDTO orderDTO = new OrderInfDTO();
+		orderDTO.setCapacity(order.getMaxCapacity());
+		orderDTO.setPrice((int) order.getRoom().getType().getPrice());
+		long stayDate = DateProcess.daysBetween2Dates(order.getArrivalDate(), order.getDepartureDate());
+		orderDTO.setStayNumber((int) stayDate);
+		orderDTO.setSubTotal((int) (orderDTO.getPrice() * stayDate));
+		if (orderDTO.getSubTotal() > 500000) {
+			orderDTO.setTaxPercent(5);
+		} else {
+			orderDTO.setTaxPercent(0);
+		}
+		orderDTO.setTaxPrice((orderDTO.getSubTotal() * orderDTO.getTaxPercent()) / 100);
+		orderDTO.setTotalPrice(orderDTO.getSubTotal() + orderDTO.getTaxPrice());
+		mav.addObject("orderInf", orderDTO);
 		return mav;
 	}
 }

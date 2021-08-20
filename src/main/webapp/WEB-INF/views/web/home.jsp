@@ -73,7 +73,7 @@
 										</div>
 										<div class="room-rent">
 											<h5>
-												${ room.price }/<span> Đêm </span>
+												${ room.price }VND<span>/Đêm </span>
 											</h5>
 										</div>
 										<div class="room-rent">
@@ -98,8 +98,12 @@
 												<c:param name="roomId" value="${ room.id }" />
 											</c:url>
 
-											<a type="button" id="btnBooking" href="${ APIbooking }">Book
-												now</a>
+											<c:if test="${room.active == 1}">
+												<a type="button" id="btnBooking" href="${ APIbooking }">Đặt phòng</a>
+											</c:if>
+											<c:if test="${room.active != 1}">
+												<a type="button" id="btnBooking">Hết phòng</a>
+											</c:if>
 										</div>
 									</div>
 								</div>

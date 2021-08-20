@@ -13,6 +13,26 @@ public class OrderEntity extends BaseEntity {
 	String phomeNumber;
 	String maxCapacity;
 	String note;
+	String cmnd;
+	String arrivalDate;
+	String departureDate;
+
+	public String getArrivalDate() {
+		return arrivalDate;
+	}
+
+	public void setArrivalDate(String arrivalDate) {
+		this.arrivalDate = arrivalDate;
+	}
+
+	public String getDepartureDate() {
+		return departureDate;
+	}
+
+	public void setDepartureDate(String departureDate) {
+		this.departureDate = departureDate;
+	}
+
 	@ManyToOne
 	@JoinColumn(name = "room_id")
 	RoomEntity room;
@@ -20,6 +40,14 @@ public class OrderEntity extends BaseEntity {
 	@ManyToOne
 	@JoinColumn(name = "card_id")
 	CardEntity card;
+
+	public String getCmnd() {
+		return cmnd;
+	}
+
+	public void setCmnd(String cmnd) {
+		this.cmnd = cmnd;
+	}
 
 	public String getCustomerName() {
 		return customerName;

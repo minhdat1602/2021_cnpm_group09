@@ -31,12 +31,13 @@
 										alt="hinh anh phong">
 								</div>
 								<div class="room-rent-desc">
-									<h3 class="roome-rent-title">${ room.roomName }</h3>
+									<h3 class="roome-rent-title">Phòng ${ room.number }</h3>
 									<div class="room-sub-desc">
 										<h4>Giá tối đa cho: người lớn</h4>
+										<h4>Loại phòng: ${ room.roomName }</h4>
 										<h4>Giá phòng</h4>
 										<h3>
-											${ room.price }<span> / Đêm</span>
+											${ room.price }VND<span>/Đêm</span>
 										</h3>
 									</div>
 								</div>
@@ -66,10 +67,11 @@
 								</h4>
 							</div>
 							<div class="submit-form mt-25">
-								<c:url var="personalInfAPI" value="/booking/personal-inf"> 
-									<c:param name="roomId" value="${ room.id }"/>
+								<c:url var="personalInfAPI" value="/booking/personal-inf">
+									<c:param name="roomId" value="${ room.id }" />
 								</c:url>
-								<a id="bookingBtn" type="button" href ="${ personalInfAPI }">Bước tiếp theo</a>
+								<a id="bookingBtn" type="button" href="${ personalInfAPI }">Bước
+									tiếp theo</a>
 							</div>
 
 
@@ -81,6 +83,7 @@
 		</div>
 	</div>
 	<script type="text/javascript">
+		
 	</script>
 </body>
 </html>
