@@ -11,4 +11,9 @@ public class MyData {
 		this.email = email;
 	}
 
+	@Override
+	public String toString() {
+		return "MyData [email=" + email + "]";
+	}
+
 }

@@ -18,4 +18,10 @@ public class OrderService implements IOrderService {
 		return this.orderRepos.saveAndFlush(orderEnttiy);
 	}
 
+	@Override
+	public OrderEntity findOneById(Long orderId) {
+		// TODO Auto-generated method stub
+		return this.orderRepos.findOne(orderId);
+	}
+
 }

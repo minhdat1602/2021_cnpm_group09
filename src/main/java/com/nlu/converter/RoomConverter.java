@@ -24,9 +24,10 @@ public class RoomConverter {
 		result.setDescription(roomTypeEntity.getDescription());
 		result.setImage(roomTypeEntity.getImage());
 		result.setNumber(roomEntity.getNumber());
+		result.setThumbnail(roomTypeEntity.getImage());
 		String roomname = roomTypeEntity.getName() + roomEntity.getNumber();
 		result.setRoomName(roomname);
-		result.setPrice(roomTypeEntity.getPrice());
+		result.setPrice((int) roomTypeEntity.getPrice());
 		RoomTypeDTO roomTypeDTO = this.roomTypeConverter.toDTO(roomTypeEntity);
 		Set<ConvenientDTO> convenients = roomTypeDTO.getConvenients();
 		result.setConvenients(convenients);

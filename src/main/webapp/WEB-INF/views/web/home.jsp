@@ -63,17 +63,17 @@
 							<div class="col-md-4">
 								<div class="single-room">
 									<div class="room-img">
-										<a href="#"><img src="images/room/room1.jpg" alt=""></a>
+										<a><img src="${ room.image }" alt="thumbnail"></a>
 									</div>
 									<div class="room-desc">
 										<div class="room-name">
 											<h3>
-												<a href="#">${ room.roomName }</a>
+												<a>Phòng ${ room.number }</a>
 											</h3>
 										</div>
 										<div class="room-rent">
 											<h5>
-												${ room.price } / <span> Đêm </span>
+												${ room.price }/<span> Đêm </span>
 											</h5>
 										</div>
 										<div class="room-rent">
@@ -82,16 +82,24 @@
 											</h5>
 										</div>
 										<div class="room-rent">
-											<h5>
-												<span>${ room.active }</span>
-											</h5>
+											<c:if test="${room.active == 1}">
+												<h5>
+													<span>Tình trạng: Còn phòng trống</span>
+												</h5>
+											</c:if>
+											<c:if test="${room.active != 1}">
+												<h5>
+													<span>Tình trạng: Hết phòng</span>
+												</h5>
+											</c:if>
 										</div>
 										<div class="room-book">
 											<c:url var="APIbooking" value="/booking/booking-inf">
-												<c:param name="roomId" value="${ room.id }"/>
+												<c:param name="roomId" value="${ room.id }" />
 											</c:url>
-										
-											<a type="button" id="btnBooking" href="${ APIbooking }">Book now</a>
+
+											<a type="button" id="btnBooking" href="${ APIbooking }">Book
+												now</a>
 										</div>
 									</div>
 								</div>

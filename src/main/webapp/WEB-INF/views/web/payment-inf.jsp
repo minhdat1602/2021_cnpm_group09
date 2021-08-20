@@ -25,8 +25,9 @@
 							<div class="tab-content">
 								<div role="tabpanel" class="tab-pane active" id="payment">
 									<div class="payment-info">
-										<c:url var="orderDetail"
-											value="/booking/booking-done?roomId=${ roomId }"></c:url>
+										<c:url var="orderDetail" value="/booking/booking-done">
+											<c:param name="orderId" value="${ orderId }"></c:param>
+										</c:url>
 										<form:form modelAttribute="paymentInfPayload"
 											id="paymentInfPayload" action="${ orderDetail }">
 											<div class="payment-form">
@@ -58,48 +59,9 @@
 												</div>
 											</div>
 										</form:form>
-									</div>
-								</div>
-								<div role="tabpanel" class="tab-pane" id="done">
-									<div class="booking-done">
-										<div class="booking-done-table table-responsive text-center">
-											<table class="table">
-												<tr>
-													<td><p>
-															1 Room <span>Five Adult & 1 child</span>
-														</p></td>
-													<td><p>
-															$120 <span>Rate</span>
-														</p></td>
-													<td><p>
-															5 <span>night</span>
-														</p></td>
-													<td><p>$550</p></td>
-												</tr>
-												<tr class="row2">
-													<td><p>
-															tax <span>20% tax</span>
-														</p></td>
-													<td></td>
-													<td></td>
-													<td><p>$90</p></td>
-												</tr>
-												<tr class="row3">
-													<td><p>Total</p></td>
-													<td></td>
-													<td></td>
-													<td><p>$640</p></td>
-												</tr>
-											</table>
-										</div>
-										<div class="booking-done-description">
-											<p>There are many variations of passages of Lorem Ipsum
-												available, but the majority have suffered alteration in some
-												form, by injected humour</p>
-											<div class="succesfully">
-												<strong>Your reservation was succefully submited!!</strong>
-											</div>
-										</div>
+
+										<input id="bookingPayload" type="hidden"
+											value="${ bookingPayload }" />
 									</div>
 								</div>
 							</div>
@@ -112,28 +74,32 @@
 	</div>
 	<!--room booking end-->
 	<script type="text/javascript">
-		$("#CLICK").click(function(e) {
-			e.preventDefault(); // avoid to execute the actual submit of the form.
-			/* var personalInf = $
-			{
-				bookingPayload
-			} */
-			var form = $(this);
-			var url = form.attr('action');
-			var myData = {
-				"email" : "che607@yahoo.com"
-			}
-			$.ajax({
-				url : '/phong-trong',
-				type : 'GET',
-				contentType : 'application/json',
-				data : JSON.stringify(myData),
-				dataType : 'json',
-				success : function(result) {
-					alert(result)
-				}
-			});
-		});
+		/* 	$("#CLICK").click(function(e) {
+				e.preventDefault(); // avoid to execute the actual submit of the form.
+				var personalInf = $('#bookingPayload').val();
+				var myData = {
+					email : "vale1"
+				};
+				$.ajax({
+					url : '${orderDetail}',
+					type : 'POST',
+					contentType : 'application/json',
+					data : JSON.stringify(myData),
+					dataType : 'json',
+					success : function(result) {
+						console.log(result);
+						console.log(myData);
+						console.log(personalInf);
+					},
+					error : function(error) {
+						alert(personalInf);
+						console.log(error);
+						console.log(personalInf);
+						console.log(myData);
+						console.log(myData);
+					}
+				})
+			}); */
 	</script>
 </body>
 </html>

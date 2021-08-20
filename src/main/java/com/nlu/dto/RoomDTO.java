@@ -9,7 +9,17 @@ public class RoomDTO extends AbstractDTO<RoomDTO> {
 	private String description;
 	private String image;
 	private String roomName;
-	private double price;
+	private int price;
+	private String thumbnail;
+
+	public String getThumbnail() {
+		return thumbnail;
+	}
+
+	public void setThumbnail(String thumbnail) {
+		this.thumbnail = thumbnail;
+	}
+
 	private Set<ConvenientDTO> convenients;
 
 	public String getNumber() {
@@ -60,11 +70,11 @@ public class RoomDTO extends AbstractDTO<RoomDTO> {
 		this.roomName = roomName;
 	}
 
-	public double getPrice() {
+	public int getPrice() {
 		return price;
 	}
 
-	public void setPrice(double price) {
+	public void setPrice(int price) {
 		this.price = price;
 	}
 

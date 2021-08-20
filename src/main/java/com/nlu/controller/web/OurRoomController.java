@@ -17,9 +17,4 @@ public class OurRoomController {
 		ModelAndView mav = new ModelAndView("web/our_room");
 		return mav;
 	}
-
-	@PostMapping("/a")
-	public String homePage1(@RequestBody MyData myData) {
-		return "OK";
-	}
 }

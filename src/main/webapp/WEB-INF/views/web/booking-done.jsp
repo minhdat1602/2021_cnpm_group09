@@ -19,9 +19,8 @@
 							<p>Vui lòng điền đầy đủ thông tin thanh toán ở mẫu bên dưới!</p>
 						</div>
 
-						<div class="service-tab-desc text-left mt-60">
+						<div class="room-booking-box">
 							<div class="tab-content">
-
 								<div role="tabpanel" class="tab-pane active" id="done">
 									<div class="booking-done">
 										<div class="booking-done-table table-responsive text-center">
@@ -66,12 +65,11 @@
 								</div>
 							</div>
 						</div>
-
 					</div>
+
 				</div>
 			</div>
 		</div>
 	</div>
-	<!--room booking end-->
 </body>
 </html>
