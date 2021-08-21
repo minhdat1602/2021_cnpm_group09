@@ -41,7 +41,7 @@
 															placeholder="Enter Creadit Card Number" />
 													</div>
 													<div class="single_form">
-														<input type="text" placeholder="Enter CVV/CVC" />
+														<input type="password" placeholder="Enter CVV/CVC" />
 													</div>
 													<div class="single_form">
 														<label>Expired Time:</label>
@@ -54,7 +54,7 @@
 														<a href="#"><img src="images/logo/pay-card.png" alt=""></a>
 													</div>
 													<div class="pay-order">
-														<button type="submit">Pay now</button>
+														<button type="submit">Thanh toán</button>
 													</div>
 												</div>
 											</div>
