@@ -25,12 +25,11 @@
 								action='<c:url value = "/dat-phong" />'>
 								<div class="booking-box1 mb-15 fix">
 									<div class="booking-filed">
-										<input type="text" placeholder="Họ tên" value="Your name">
+										<input type="text" placeholder="Họ tên">
 									</div>
 									<div class="booking-filed">
-										<input type="text" placeholder="Địa chỉ email"
-											value="Your email"> <input type="hidden" name="price"
-											value="${roomType.price}">
+										<input type="text" placeholder="Địa chỉ email"> <input
+											type="hidden" name="price" value="${roomType.price}">
 									</div>
 								</div>
 								<div class="booking-box2 mb-15 fix">

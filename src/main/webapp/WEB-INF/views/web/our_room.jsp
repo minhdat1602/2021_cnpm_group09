@@ -172,7 +172,7 @@
 								temp += "</h5>";
 								temp += "</div>";
 								temp += "<div class=\"room-book\">";
-								temp += "<a href=\"#\">Đặt ngay</a>";
+								temp += "<a class =\"typeid\" href=  \""+locate+ listRoomType[i].id+ "\" >Đặt ngay</a>";
 								temp += "</div>";
 								temp += "</div>";
 								temp += "</div>";
