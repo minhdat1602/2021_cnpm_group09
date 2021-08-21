@@ -24,5 +24,11 @@ public interface RoomTypeRepository extends JpaRepository<RoomTypeEntity, Long> 
 	List<RoomTypeEntity> findByFilter(@Param("capacity") int capacity, @Param("roomNum") int roomNum,
 			@Param("startDate") Date startDate, @Param("endDate") Date endDate);
 	
+	
+	@Query(value = "select * \r\n"
+			+ "from room_type\r\n"
+			+ "WHERE description like %:key% or name like %:key% ", nativeQuery = true)
+	List<RoomTypeEntity> findByKey(@Param("key") String key);
+	
 	RoomTypeEntity findById(long id);
 }

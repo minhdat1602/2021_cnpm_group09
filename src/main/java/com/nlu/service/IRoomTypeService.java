@@ -8,6 +8,7 @@ import com.nlu.entity.RoomTypeEntity;
 
 public interface IRoomTypeService {
 	List<RoomTypeDTO> getByFilter(int capacity, int roomNum, Date startDate, Date endDate);
+	List<RoomTypeEntity> findByKey(String key);
 
 	RoomTypeEntity findById(long id);
 	RoomTypeDTO findOne(long id);

@@ -36,6 +36,12 @@ public class RoomTypeService implements IRoomTypeService {
 		}
 		return roomTypeDTOs;
 	}
+	
+	@Override
+	public List<RoomTypeEntity> findByKey(String key){
+		List<RoomTypeEntity> result = roomTypeRepository.findByKey(key);
+		return result;
+	}
 
 	@Override
 	public RoomTypeEntity findById(long id) {

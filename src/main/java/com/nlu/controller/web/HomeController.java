@@ -6,9 +6,10 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class HomeController {
-	
-	/*
-	 * @GetMapping(value = "/dat-phong") public ModelAndView homePage() {
-	 * ModelAndView mav = new ModelAndView("web/booking"); return mav; }
-	 */
+
+//	@GetMapping(value = "/trang-chu")
+//	public ModelAndView homePage() {
+//		ModelAndView mav = new ModelAndView("web/home");
+//		return mav;
+//	}
 }

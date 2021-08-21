@@ -189,6 +189,12 @@
 				</div>
 				<!-- Mobile menu end -->
 			</div>
+
+			<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+			<%@ page import="java.util.Date" %>
+			<jsp:useBean id="now" class="java.util.Date" />
+			<c:set var="tomorrow" value="<%=new Date(new Date().getTime() + 60*60*24*1000)%>"/>
+
 			<div class="welcome-section">
 				<div class="container">
 					<div class="row">
@@ -197,11 +203,13 @@
 								<div class="booking-form">
 									<form id="filterForm">
 										<div class="b-date arrive mb-15">
-											<input id="dateFrom" name="startDate" value="01/06/2021"
+											<input id="dateFrom" name="startDate"
+												value="<fmt:formatDate value="${now}" pattern="dd/MM/yyyy" />"
 												class="date-picker" type="text" placeholder="Ngày đến">
 										</div>
 										<div class="b-date departure mb-15">
-											<input id="dateTo" name="endDate" value="05/06/2021"
+											<input id="dateTo" name="endDate"
+												value="<fmt:formatDate value="${tomorrow}" pattern="dd/MM/yyyy" />"
 												class="date-picker" type="text" placeholder="Ngày đi">
 										</div>
 										<div class="mb-15">
