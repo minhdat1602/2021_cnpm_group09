@@ -19,8 +19,6 @@ public class RoomService implements IRoomService {
 	@Autowired
 	RoomRepository roomRepository;
 	@Autowired
-	RoomTypeRepository roomTypeRepository;
-	@Autowired
 	RoomConverter roomConverter;
 
 	public RoomDTO findOne(Long id) {

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>9</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>414</x>
+      <y>81</y>
+      <w>306</w>
+      <h>81</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Interface&gt;&gt;
+IOrderService
+--
++saveAndFush(cardEntity: 	OrderEntity): OrderEntity
++findOneById(orderId: Long): OrderEntity</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLInterface</id>
+    <coordinates>
+      <x>63</x>
+      <y>9</y>
+      <w>72</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>Interface
+--
+Operation1
+Operation2</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>153</x>
+      <y>270</y>
+      <w>189</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>BookingController: Class
+--
+id: Long="36548"
+[waiting for message]</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>144</x>
+      <y>81</y>
+      <w>252</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Interface&gt;&gt;
+IRoomService
+--
++findOne(roomId: Long): RoomDTO
++findOneEntity(roomId: Long): RoomEntity
++findAll(): List&lt;RoomDTO&gt;</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>423</x>
+      <y>162</y>
+      <w>297</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Interface&gt;&gt;
+ICardService
+--
++saveAndFush(cardEntity: CardEntity): CardEntity
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
