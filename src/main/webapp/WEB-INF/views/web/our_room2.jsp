@@ -55,7 +55,6 @@
 						<div class="single-room-sapce" id="list">
 
 							<c:forEach items="${listRoom}" var="room">
-
 								<div class="col-md-4 hidden-sm col-xs-12">
 									<div class="single-room">
 										<div class="room-img">

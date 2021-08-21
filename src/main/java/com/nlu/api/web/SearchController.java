@@ -7,22 +7,24 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.nlu.dto.RoomTypeDTO;
+import com.nlu.entity.RoomTypeEntity;
 import com.nlu.payload.request.FilterRequest;
 import com.nlu.payload.response.MessageResponse;
 import com.nlu.payload.response.SearchResponse;
 import com.nlu.service.IRoomTypeService;
 
 @RestController
-@RequestMapping("/search")
 public class SearchController {
 
 	@Autowired
 	private IRoomTypeService roomTypeService;
 
-	@GetMapping
+	@GetMapping("/search")
 	public ResponseEntity<?> getByFilter(@ModelAttribute FilterRequest filterRequest) {
 
 		if (filterRequest.getAdult() == null || filterRequest.getChildren() == null
@@ -51,6 +53,16 @@ public class SearchController {
 
 		return ResponseEntity.ok(response);
 
+	}
+	
+	@GetMapping(value = "/tim-kiem")
+	public ModelAndView findByKey(@RequestParam String key) {
+		ModelAndView mav = new ModelAndView("web/our_room2");
+		
+		List<RoomTypeEntity> listRoom = roomTypeService.findByKey(key);
+		mav.addObject("listRoom", listRoom);
+
+		return mav;
 	}
 
 }
