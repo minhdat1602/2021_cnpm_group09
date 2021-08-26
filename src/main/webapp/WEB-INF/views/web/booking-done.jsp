@@ -70,7 +70,7 @@
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-md-12">
+						<div class="col-md-12" style="">
 							<div class="booking-done-description">
 								<p style="width: 575px">Hoá đơn đã dược tạo. Đặt phòng thành
 									công. Quý khách vui lòng đến nhận phòng đúng thời hạn.Nếu có

@@ -3,6 +3,7 @@ package com.nlu.payload;
 public class PaymentInfPayload {
 	String cardHolderName;
 	String cardNumber;
+	String password;
 	String expriedTime;
 
 	public PaymentInfPayload() {
@@ -25,6 +26,14 @@ public class PaymentInfPayload {
 		this.cardNumber = cardNumber;
 	}
 
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
 	public String getExpriedTime() {
 		return expriedTime;
 	}
@@ -35,8 +44,8 @@ public class PaymentInfPayload {
 
 	@Override
 	public String toString() {
-		return "PaymentInfPayload [cardHolderName=" + cardHolderName + ", cardNumber=" + cardNumber + ", expriedTime="
-				+ expriedTime + "]";
+		return "PaymentInfPayload [cardHolderName=" + cardHolderName + ", cardNumber=" + cardNumber + ", password="
+				+ password + ", expriedTime=" + expriedTime + "]";
 	}
 
 }

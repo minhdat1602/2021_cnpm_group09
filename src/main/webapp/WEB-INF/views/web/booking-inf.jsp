@@ -7,7 +7,37 @@
 <head>
 <meta charset="UTF-8">
 <title>Thông tin đặt phòng</title>
+<style type="text/css">
+#loader {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	width: 100%;
+	background: rgba(0, 0, 0, 0.75)
+		url('http://i.stack.imgur.com/FhHRx.gif') no-repeat center center;
+	z-index: 10000;
+}
 
+#loader-content {
+	position: fixed;
+	top: 90px;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 10000;
+	color: white;
+}
+
+#loader-contain {
+	display: none;
+}
+</style>
 </head>
 <body>
 
@@ -16,8 +46,6 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
-
-
 					<div class="selcted-room">
 						<div class="select-room-inner">
 							<div class="select-room-title">
@@ -25,20 +53,25 @@
 								<p>Thông tin phòng bên dưới!</p>
 							</div>
 							<div class="room-rent fix mb-45">
-								<div class="room-rent-img">
+								<div class="room-rent-img" style="width: 60%;">
 									<img src="${ room.image}"
-										style="width: 192px !important; height: 119px; !important"
+										style="width: 625px !important; height: 450px; !important"
 										alt="hinh anh phong">
 								</div>
-								<div class="room-rent-desc">
-									<h3 class="roome-rent-title">Phòng ${ room.number }</h3>
-									<div class="room-sub-desc">
-										<h4>Giá tối đa cho: người lớn</h4>
-										<h4>Loại phòng: ${ room.roomName }</h4>
-										<h4>Giá phòng</h4>
-										<h3>
-											${ room.price }VND<span>/Đêm</span>
-										</h3>
+								<div class="room-rent-desc" style="width: 40%;">
+									<h3>
+										<b>Số phòng: </b>Phòng ${ room.number }
+									</h3>
+									<div>
+										<h4>
+											<b>Giá tối đa cho:</b> ${ room.maxCapacity } người
+										</h4>
+										<h4>
+											<b>Loại phòng:</b> ${ room.roomName }
+										</h4>
+										<h4>
+											<b>Giá phòng:</b> ${ room.price }VND<span>/Đêm</span>
+										</h4>
 									</div>
 								</div>
 							</div>
@@ -46,7 +79,7 @@
 							<div class="room-social-share mb-45">
 								<h3>Các tiện nghi có sẵn</h3>
 								<c:forEach items="${room.convenients}" var="convenience">
-									<h4>${convenience.name}</h4>
+									<h5>${convenience.name}</h5>
 								</c:forEach>
 							</div>
 
@@ -70,11 +103,15 @@
 								<c:url var="personalInfAPI" value="/booking/personal-inf">
 									<c:param name="roomId" value="${ room.id }" />
 								</c:url>
-								<a id="bookingBtn" type="button" href="${ personalInfAPI }">Bước
-									tiếp theo</a>
+								<div class="submit-form mt-25">
+									<button id="bookingBtn">Bước tiếp theo</button>
+								</div>
+								<a id="personalInf" href="${ personalInfAPI }"></a>
 							</div>
-
-
+							<div id="loader-contain">
+								<div id="loader"></div>
+								<p id="loader-content">Vui lòng đợi trong giây lát...</p>
+							</div>
 						</div>
 					</div>
 
@@ -83,7 +120,11 @@
 		</div>
 	</div>
 	<script type="text/javascript">
-		
+		var spinner = $('#loader-contain');
+		$("#bookingBtn").click(function() {
+			spinner.show();
+			$("#personalInf")[0].click();
+		});
 	</script>
 </body>
 </html>

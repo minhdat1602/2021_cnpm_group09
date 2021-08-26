@@ -1,6 +1,6 @@
 package com.nlu.payload;
 
-public class BookingPayload {
+public class PersonalInfPayload {
 	long roomId;
 	String name;
 	String email;

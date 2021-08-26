@@ -2,11 +2,44 @@
 	pageEncoding="UTF-8"%>
 <%@include file="/common/taglib.jsp"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<c:url var="paymentInfUrl"
+	value="/booking/payment-inf?roomId=${ roomId }"></c:url>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Thông tin khách hàng</title>
+<style type="text/css">
+#loader {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	width: 100%;
+	background: rgba(0, 0, 0, 0.75)
+		url('http://i.stack.imgur.com/FhHRx.gif') no-repeat center center;
+	z-index: 10000;
+}
+
+#loader-content {
+	position: fixed;
+	top: 90px;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 10000;
+	color: white;
+}
+
+#loader-contain {
+	display: none;
+}
+</style>
 </head>
 <body>
 
@@ -24,10 +57,8 @@
 
 
 						<div class="room-booking-box">
-							<c:url var="orderDetail"
-								value="/booking/payment-inf?roomId=${ roomId }"></c:url>
-							<form:form id="bookingForm" modelAttribute="bookingPayload"
-								action="${ orderDetail }">
+							<form:form id="bookingForm" modelAttribute="personalInfPayload"
+								action="${ paymentInfUrl }">
 								<div class="booking-box1 mb-15 fix">
 									<div class="booking-filed">
 										<form:input path="name" placeholder="Họ và tên" />
@@ -57,14 +88,14 @@
 								<div class="booking-box1 mb-15 fix">
 									<div class="booking-filed">
 										<form:select path="roomNumber">
-											<form:option value="${ bookingPayload.roomNumber }">Phòng số ${ bookingPayload.roomNumber }</form:option>
+											<form:option value="${ personalInfPayload.roomNumber }">Phòng số ${ personalInfPayload.roomNumber }</form:option>
 										</form:select>
 									</div>
 									<div class="booking-filed">
 										<form:select id="adult" path="maxCapacity">
 											<form:option value="0" disabled="true">Số lượng người</form:option>
 											<c:forEach var="i" begin="1"
-												end="${ bookingPayload.maxCapacity }">
+												end="${ personalInfPayload.maxCapacity }">
 												<form:option value="${ i }">${ i } người</form:option>
 											</c:forEach>
 										</form:select>
@@ -74,14 +105,20 @@
 									<form:textarea placeholder="Ghi chú" path="note"></form:textarea>
 								</div>
 								<div class="submit-form mt-25">
-									<button id="bookingBtn" type="submit">Đặt phòng</button>
+									<button id="bookingBtn" onclick="submitClick()">Đặt
+										phòng</button>
 								</div>
 							</form:form>
+							<div id="loader-contain">
+								<div id="loader"></div>
+								<p id="loader-content">Vui lòng đợi trong giây lát...</p>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+	</div>
 	</div>
 	<!--room booking end-->
 	<script>
@@ -95,10 +132,16 @@
 		if (mm < 10) {
 			mm = '0' + mm
 		}
+		document.getElementById("arrivalDate").setAttribute("min",
+				yyyy + '-' + mm + '-' + dd);
+		document.getElementById("departureDate").setAttribute("min",
+				yyyy + '-' + mm + '-' + (dd + 1));
 
-		today = yyyy + '-' + mm + '-' + dd;
-		document.getElementById("arrivalDate").setAttribute("min", today);
-		document.getElementById("departureDate").setAttribute("min", today);
+		var spinner = $('#loader-contain');
+		function submitClick() {
+			spinner.show();
+			$('#bookingForm').submit();
+		}
 	</script>
 </body>
 </html>

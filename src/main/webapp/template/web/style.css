@@ -82,8 +82,8 @@
 }
 /* cua dat */
 .room-img img {
-    width: 370px;
-    height: 256px;
+	width: 370px;
+	height: 256px;
 }
 
 img {
@@ -1626,7 +1626,6 @@ h3.news-title {
 /* .room-img img {
 	width: 100%;
 } */
-
 .static2 .welcome-section {
 	padding-top: 0;
 }
@@ -2503,7 +2502,6 @@ h3.news-title {
 	right: 10px;
 	top: 10px;
 } */
-
 .selcted-room {
 	box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
 	padding: 65px 45px 168px 40px;
@@ -2512,10 +2510,11 @@ h3.news-title {
 .room-rent .room-rent-img {
 	float: left;
 	padding-right: 4px;
-	width: 40%;
+	width: 60%;
 }
 
 .room-rent-desc .roome-rent-title {
+	width: 40%;
 	font-size: 20px;
 	font-weight: 400;
 	text-transform: uppercase;
@@ -2824,14 +2823,12 @@ h3.news-title {
 
 .booking-done-table {
 	/* float: left; */
-	margin:auto;
 	padding-right: 30px;
 	width: 50%;
 }
 
 .booking-done-description {
 	/* float: left; */
-	margin:auto;
 	padding-left: 30px;
 	width: 50%;
 }
@@ -3220,4 +3217,41 @@ h3.news-title {
 
 .slider-list.owl-theme .owl-controls {
 	margin-top: 0;
+}
+
+#loader {
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	width: 100%;
+	background: rgba(0, 0, 0, 0.75) url(images/loading2.gif) no-repeat
+		center center;
+	z-index: 10000;
+}
+
+.modal {
+	display: none;
+	position: fixed;
+	z-index: 1000;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	background: rgba(255, 255, 255, .8)
+		url('http://i.stack.imgur.com/FhHRx.gif') 50% 50% no-repeat;
+}
+
+/* When the body has the loading class, we turn
+   the scrollbar off with overflow:hidden */
+body.loading .modal {
+	overflow: hidden;
+}
+
+/* Anytime the body has the loading class, our
+   modal element will be visible */
+body.loading .modal {
+	display: block;
 }
